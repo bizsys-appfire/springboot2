@@ -13,12 +13,12 @@ pipeline{
                 ''' 
             }
         }
-    stage ('Clean workspace') {
+		stage ('Clean workspace') {
             steps {
                 deleteDir()
             }
         }
-    stage ('Checkout from scm') {
+		stage ('Checkout from scm') {
             steps {
                 checkout scm
             }

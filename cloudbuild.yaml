@@ -1,7 +1,7 @@
 steps:
   - name: "maven"
     entrypoint: "mvn"
-    args: ['clean', 'install', 'maven']
+    args: ['clean', 'install']
   
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'gcr.io/nimble-hash-374210/springboot:$SHORT_SHA', '.']

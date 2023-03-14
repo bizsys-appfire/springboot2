@@ -3,14 +3,14 @@ steps:
     entrypoint: "mvn"
     args: ['clean', 'install']
   
-  - name: 'gcr.io/cloud-builders/docker'
+  - name: 'gcr.io/cloud-builders/springboot2'
     args: ['build', '-t', 'gcr.io/nimble-hash-374210/springboot2:$SHORT_SHA', '.']
     id: Building the container image
 
-  - name: 'gcr.io/cloud-builders/docker'
+  - name: 'gcr.io/cloud-builders/springboot2'
     args: ['push', 'gcr.io/nimble-hash-374210/springboot2:$SHORT_SHA']
     id: Pushing the image to registry
 
-  - name: 'gcr.io/cloud-builders/docker'
+  - name: 'gcr.io/cloud-builders/sprintboot2'
     args: ['run', 'deploy', 'nimble-hash-374210', '--image', 'gcr.io/nimble-hash-374210/springboot2:$SHORT_SHA', '--region', 'us-central1', '--platform', 'managed', '--allow-unauthenticated']
     
